@@ -21,7 +21,7 @@ public class Stop : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("ball"))
+        if (other.gameObject.tag=="ball")
         {
             _ballCount++;
             _countText.text = _ballCount + "/" + _MinCount;

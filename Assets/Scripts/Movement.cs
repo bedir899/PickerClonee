@@ -4,18 +4,19 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    [SerializeField] private float forwardSpeed = 3f;
+    [SerializeField] public float forwardSpeed = 3f;
     [SerializeField] private float swerveSpeed = 0.5f;
     [SerializeField] private float maxSwerveAmount = 1f;
+    [SerializeField] private Stop _stops;
     private float lastFrameFingerPositionX;
     private float moveFactorX;
     public float MoveFactorX => moveFactorX;
 
     private void Update()
     {
-        
+
         transform.Translate(Vector3.down * Time.deltaTime * forwardSpeed);
-       
+
         float swerveAmount = Time.deltaTime * swerveSpeed * MoveFactorX;
         swerveAmount = Mathf.Clamp(swerveAmount, -maxSwerveAmount, maxSwerveAmount);
         transform.Translate(swerveAmount, 0, 0);
@@ -35,4 +36,6 @@ public class Movement : MonoBehaviour
         }
 
     }
+   
+    
 }

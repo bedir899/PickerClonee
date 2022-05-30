@@ -12,9 +12,9 @@ public class CameraControl : MonoBehaviour
 
     private void Start()
     {
-        offset.x = 0;
-        offset.y = 4.038f;
-        offset.z = -6f;
+        offset.x = -10;
+        offset.y = 4f;
+        offset.z = 0f;
     }
     private void LateUpdate()
     {

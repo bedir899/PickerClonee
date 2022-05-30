@@ -21,17 +21,19 @@ public class Pusher : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("FirstStage"))
+        if (other.gameObject.tag=="FirstStage")
         {
-            _pusher.transform.DOLocalMove(new Vector3(_pusher.transform.localPosition.x, _pusher.transform.localPosition.y), 2f, false);
+            _pusher.transform.DOLocalMoveY(-5f,5f);
             StartCoroutine(departure());
         }
 
     }
     IEnumerator departure()
     {
+        
+        _pusher.transform.localPosition = new Vector3(0, -1.53f, 0);
         yield return new WaitForSeconds(2f);
-        _pusher.transform.localPosition = new Vector3(0, 0.314f, 2.4f);
+        
 
     }
 
